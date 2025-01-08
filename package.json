@@ -1,0 +1,20 @@
+{
+  "name": "@tscircuit/benchmark-cli",
+  "main": "dist/index.js",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {},
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "@types/semver": "^7.5.8",
+    "commander": "^13.0.0",
+    "tsup": "^8.3.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "semver": "^7.6.3"
+  }
+}
