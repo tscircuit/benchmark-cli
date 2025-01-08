@@ -6,13 +6,15 @@ A command line tool for tracking benchmarks and commenting to github
 
 ```bash
 benchmark run somefile.benchmark.ts --version 1.2.3
-# writes to v1.2.3/timestamp-somefile.bm.json on remote github repo
+# writes to v1.2.3/timestamp-somefile.bm.json
 
 benchmark run somefile.benchmark.ts --pr 23
-# writes to pr23/timestamp-somefile.bm.json on remote github repo
+# writes to pr23/timestamp-somefile.bm.json
 
 {
   system: {
+    os: "macOS",
+    arch: "arm64",
     description: "M3 Mac"
   },
   timeSpentInFn: {
@@ -25,14 +27,12 @@ benchmark run somefile.benchmark.ts --pr 23
   }
 }
 
-benchmark delta main/file1.bm.json pr23/file1.bm.json
-# Outputs the ordered difference between functions so you can
-# tell how performance changed
+benchmark compare main/file1.bm.json pr23/file1.bm.json
+# Outputs the ordered difference between functions in markdown so
+# you can tell how performance improved or regressed
 
-benchmark delta main/file1.bm.json pr23/file1.bm.json --comment-on-github
+# Test a new benchmark against the stable one (does not write out)
+benchmark run-and-compare file1.benchmark.ts --stable main/file1.bm.json
 
-# Local testing of benchmarks
-
-benchmark run-and-compare file1.benchmark.ts
-# Outputs delta between this file and the last good run
+benchmark run-and-compare file1.benchmark.ts --stable main
 ```
