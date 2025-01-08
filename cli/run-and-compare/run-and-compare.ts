@@ -1,7 +1,10 @@
 interface Params {
   inputFilePath: string
+  stablePath: string
 }
 
-export const runAndCompare = async ({ inputFilePath }: Params) => {
-  console.log("Running a benchmark and comparing it")
+export const runAndCompare = async ({ inputFilePath, stablePath }: Params) => {
+  console.log(`Running benchmark from ${inputFilePath}`)
+  console.log(`Will compare against stable path: ${stablePath}`)
+  // TODO: Implement running benchmark and comparing against stable
 }

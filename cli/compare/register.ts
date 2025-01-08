@@ -3,9 +3,12 @@ import { compare } from "./compare"
 
 export const registerCompare = (program: Command) => {
   program
-    .command("compare")
+    .command("compare <stableFile> <testFile>")
     .description("Compare benchmarks")
-    .action(() => {
-      await compare()
+    .action(async (stableFile, testFile) => {
+      await compare({
+        stableFilePath: stableFile,
+        testFilePath: testFile,
+      })
     })
 }
